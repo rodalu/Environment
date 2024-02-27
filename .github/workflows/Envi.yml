@@ -10,8 +10,7 @@ jobs:
   Dev_environment:
      name: Dev Environment
      runs-on: ubuntu=latest
-     env:
-        Dev_Environment: ${{github.event.inputs.Dev_Environment || 'des'}}
+ 
      steps:    
         - name: Environment Config
           run: echo "$Dev_Environment"
