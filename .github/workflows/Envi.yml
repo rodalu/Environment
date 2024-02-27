@@ -16,7 +16,10 @@ jobs:
           run: echo "$Dev_Environment"
           env: 
                  Dev_Environment: ${{ env.Dev_Environment }}
-
+        - name: Environment Config
+          run: 
+                echo "{Development_Environment}= {Dev_Envi}" >> "$GITHUB_ENV"
+      
            
  
   Stage_environment:
