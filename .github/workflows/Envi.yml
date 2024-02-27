@@ -13,11 +13,13 @@ jobs:
  
      steps:    
         - name: Environment Config
-          run: |
-            echo "{Development_Environment}= {Dev_Envi}" >> "$GITHUB_ENV"
+          id: step_one
+          run: 
+            echo "{Dev_Env} = { Development }" >> "$GITHUB_ENV"
         - name: Test 
-          run: |
-            echo $Development_Environment
+          id: step_two
+          run: 
+            echo "{Dev_Env} = { Development }" >> "$GITHUB_ENV"
            
  
   Stage_environment:
