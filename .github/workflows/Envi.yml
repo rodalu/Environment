@@ -17,6 +17,10 @@ jobs:
           run : |
               echo Dev_Environment = ${{env.Dev_Environment}}
               echo test1 vars as Dev_Environment = ${{env.Dev_Environment}}
+        - name: Environment Config
+          run: echo "Dev_Environment"
+          env: 
+                 Dev_Environment: Development
  
   Stage_environment:
       name: Stage Environment
@@ -29,6 +33,6 @@ jobs:
                     echo Dev_Environment = ${{env.Stage_Environment}}
                      echo test1 vars as Dev_Environment = ${{env.Stage_Environment}}
            - name: Environment Config
-             run: echo "Dev_Environment"
+             run: echo "Staging_Environment"
              env: 
-                Dev_Environment: Development
+                Dev_Environment: Staging
