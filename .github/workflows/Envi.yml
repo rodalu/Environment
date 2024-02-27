@@ -19,7 +19,7 @@ jobs:
               echo test1 vars as Dev_Environment = ${{env.Dev_Environment}}
  
   Stage_environment:
-      name: Stage
+      name: Stage Environment
       runs-on: ubuntu=latest
       env:
          Stage_Environment: ${{github.event.inputs.Stage_Environment || 'Stage'}}
@@ -28,4 +28,7 @@ jobs:
              run : |
                     echo Dev_Environment = ${{env.Stage_Environment}}
                      echo test1 vars as Dev_Environment = ${{env.Stage_Environment}}
-
+           - name: Environment Config
+             run: echo "Dev_Environment"
+             env: 
+                Dev_Environment: Development
