@@ -13,9 +13,11 @@ jobs:
  
      steps:    
         - name: Environment Config
-          run: 
-                echo "{Development_Environment}= {Dev_Envi}" >> "$GITHUB_ENV"
-      
+          run: |
+            echo "{Development_Environment}= {Dev_Envi}" >> "$GITHUB_ENV"
+        - name: Test 
+          run: |
+            echo $Development_Environment
            
  
   Stage_environment:
