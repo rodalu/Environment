@@ -3,12 +3,12 @@ name: Test Env Config
 on:
 
    workflow_dispatch:
-
+   push:
 
 jobs:
 
   Dev_environment:
-     name: Dev Environment
+ 
      runs-on: ubuntu=latest
  
      steps:  
