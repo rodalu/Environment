@@ -15,7 +15,7 @@ jobs:
         - name: Environment Config
           run: echo "$Dev_Environment"
           env: 
-                 Dev_Environment: ${{env.Dev_Environment}}
+                 Dev_Environment: ${{ env.Dev_Environment }}
 
            
  
@@ -27,7 +27,7 @@ jobs:
       steps:
            - name: Test ENV
              run : |
-                    echo Dev_Environment = ${{env.Stage_Environment}}
+                    echo Dev_Environment = ${{env.Stage_Environment}} >> "$GITHUB_ENV"
                      echo test1 vars as Dev_Environment = ${{env.Stage_Environment}}
            - name: Environment Config
              run: echo "Staging_Environment"
