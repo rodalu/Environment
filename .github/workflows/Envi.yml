@@ -3,7 +3,7 @@ name: Test Env Config
 on:
 
    workflow_dispatch:
-   push:
+   push: 
 
 jobs:
 
@@ -12,10 +12,6 @@ jobs:
      runs-on: ubuntu=latest
  
      steps:    
-        - name: Environment Config
-          run: echo "$Dev_Environment"
-          env: 
-                 Dev_Environment: ${{ env.Dev_Environment }}
         - name: Environment Config
           run: 
                 echo "{Development_Environment}= {Dev_Envi}" >> "$GITHUB_ENV"
