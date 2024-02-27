@@ -16,7 +16,7 @@ jobs:
         - name: Environment Config
           run: echo "Dev_Environment"
           env: 
-                 Dev_Environment: Development
+                 Dev_Environment: ${env.Development}
         - name: Test ENV
           run : |
               echo Dev_Environment = ${{env.Dev_Environment}}
