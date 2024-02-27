@@ -3,32 +3,12 @@ name: Test Env Config
 on:
 
    workflow_dispatch:
+   push:
 
 jobs:
 
-  DEV:
-      runs-on: ubuntu-latest
-      environment: Dev
-
-      steps:
-        - uses: action/checkout@v2
-
-        - name: Run Script
-          run: |
-            echo "Running for Dev"
-
-  QA:    
-        runs-on: ubuntu-latest        
-        environment: Prod
-        
-        steps:
-                   
-           - name: Run Script
-             run: |
-                    echo "Running for QA"
-
-  test_environment:
-     name: Test Env
+  Dev_environment:
+     name: Dev Environment
      runs-on: ubuntu=latest
      env:
         Dev_Environment: ${{github.event.inputs.Dev_Environment || 'des'}}
@@ -38,5 +18,14 @@ jobs:
               echo Dev_Environment = ${{env.Dev_Environment}}
               echo test1 vars as Dev_Environment = ${{env.Dev_Environment}}
  
-       
+  Stage_environment:
+      name: Stage
+      runs-on: ubuntu=latest
+      env:
+         Stage_Environment: ${{github.event.inputs.Stage_Environment || 'Stage'}}
+      steps:
+           - name: Test ENV
+             run : |
+                    echo Dev_Environment = ${{env.Stage_Environment}}
+                     echo test1 vars as Dev_Environment = ${{env.Stage_Environment}}
 
