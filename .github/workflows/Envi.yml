@@ -3,7 +3,7 @@ name: Test Env Config
 on:
 
    workflow_dispatch:
-   push: 
+
 
 jobs:
 
@@ -11,7 +11,9 @@ jobs:
      name: Dev Environment
      runs-on: ubuntu=latest
  
-     steps:    
+     steps:  
+        - name: Log Values
+          run: echo ${{ secrets.GITHUB_TOKEN }}  
         - name: Environment Config
           id: step_one
           run: 
@@ -26,12 +28,12 @@ jobs:
       name: Stage Environment
       runs-on: ubuntu=latest
       env:
-         Stage_Environment: ${{github.event.inputs.Stage_Environment || 'Stage'}}
+         Stage_Environment: ${{ github.event.inputs.Stage_Environment || 'Stage'}}
       steps:
            - name: Test ENV
              run : |
-                    echo Dev_Environment = ${{env.Stage_Environment}} >> "$GITHUB_ENV"
-                     echo test1 vars as Dev_Environment = ${{env.Stage_Environment}}
+                    echo Dev_Environment = ${{ env.Stage_Environment }} >> "$GITHUB_ENV"
+                     echo test1 vars as Dev_Environment = ${{ env.Stage_Environment }}
            - name: Environment Config
              run: echo "Staging_Environment"
              env: 
