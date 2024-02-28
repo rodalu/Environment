@@ -30,4 +30,14 @@ jobs:
              env:
                  StagingEnv: " $env:StagingEnv "
                  ENVIRONMENT: ${{ env.StagingEnv }}
+                
+    Job3:
+        runs-on: ubuntu-latest
+        env:
+             Environment: $ {{ github.TARGET_ENV || 'des' }}
+             name: Show vars
+        steps:
+             - name: Prod Stage
+               run : echo ENVIRONMENT_NAME = $ {{ env.ENVIRONMENT_NAME }}
+          
                
