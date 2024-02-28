@@ -12,32 +12,32 @@ on:
 jobs:
     Job1:
         runs-on: ubuntu-latest
-        env:
-            Environment: Development
+        environment: ${{ github.event.inputs.TARGET_ENV || 'Development' }}
+        name: Create Dev Environment
         steps:
-            - name: Development Stage
-              run : echo "$StageEnv"
-              env:
-                 StageEnv: Development_Env
-   
+             - name: DEV ENVIRONMENT
+               run: |
+                echo ENVIRONMENT_NAME = ${{ env.ENVIRONMENT_NAME }}
+                echo Server vars as env = ${{ env.Server }}
+
     Job2:
         runs-on: ubuntu-latest
-        env:
-            Environment: Staging
+        environment: ${{ github.event.inputs.TARGET_ENV || 'Staging' }}
+        name: Create Staging Environment
         steps:
-           - name: Staging Stage
-             run : echo "$StagingEnv"
-             env:
-                 StagingEnv: " $env:StagingEnv "
-                 ENVIRONMENT: ${{ env.StagingEnv }}
+             - name: Staging Environment
+               run: |
+                echo ENVIRONMENT_NAME = ${{ env.ENVIRONMENT_NAME }}
+                echo Server vars as env = ${{ env.Server }}
+
                 
     Job3:
 
         runs-on: ubuntu-latest
-        environment: ${{ github.event.inputs.TARGET_ENV || 'description' }}
-        name: Show Values
+        environment: ${{ github.event.inputs.TARGET_ENV || 'Production' }}
+        name: Create Production Environment
         steps:
-             - name: Environment
+             - name: Production Environment
                run: |
                 echo ENVIRONMENT_NAME = ${{ env.ENVIRONMENT_NAME }}
                 echo Server vars as env = ${{ env.Server }}
