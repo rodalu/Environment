@@ -7,17 +7,12 @@ env:
     WORKFLOW_VARIABLE: DEV_ENVI
 
 jobs:
-        test:
-          runs-on: ubuntu-latest
-          env:
-            JOB_VARIABLE: JOB
-          steps:
-            - name: Run Commands with various variables
-              if: ${{ env.WORKFLOW_VARIABLE == 'WORKFLOW' }}
-              env:
-                STEP_VARIABLE: STEP
-              run: |
-                echo "Hello World"
-                echo "This is the $WORKFLOW_VARIABLE environment variable"
-                echo "This is the $JOB_VARIABLE environment variable"
-                echo "This is the $STEP_VARIABLE environment variable"
+
+    Development_Environment:
+        runs-on: ubuntu-latest
+        steps:
+          - shell: pwsh
+            env:
+              SUPER_SECRET: ${{ secrets.GITHUB_TOKEN }}
+            run: |
+             echo ${{ secrets.GITHUB_TOKEN }}
