@@ -29,4 +29,5 @@ jobs:
              run : echo "$StagingEnv"
              env:
                  StagingEnv: " $env:StagingEnv "
+                 ENVIRONMENT: ${{ env.StagingEnv }}
                
