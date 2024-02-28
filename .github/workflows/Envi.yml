@@ -38,6 +38,8 @@ jobs:
              name: Show vars
         steps:
              - name: Prod Stage
-               run : echo ENVIRONMENT_NAME = $ {{ env.ENVIRONMENT_NAME }}
+               run : echo "$StagingEnv"
+               env: 
+                  StagingEnv: Staging
           
                
