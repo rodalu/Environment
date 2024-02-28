@@ -7,21 +7,17 @@ env:
     WORKFLOW_VARIABLE: DEV_ENVI
 
 jobs:
-
-  Dev_environment:
- 
-    runs-on: ubuntu=latest
-steps:  
-        - name: Log Values
-          run: echo ${{ secrets.GITHUB_TOKEN }}  
-        - name: Environment Config
-          id: step_one
-          run: 
-            echo "{Dev_Env} = { Development }" >> "$GITHUB_ENV"
-        - name: Test 
-          id: step_two
-          run: 
-            echo "Development"
-
-        - name: Set Variable
-          run: echo "Dev_Envi ${{ vars.Dev_Envi }}"
+        test:
+          runs-on: ubuntu-latest
+          env:
+            JOB_VARIABLE: JOB
+          steps:
+            - name: Run Commands with various variables
+              if: ${{ env.WORKFLOW_VARIABLE == 'WORKFLOW' }}
+              env:
+                STEP_VARIABLE: STEP
+              run: |
+                echo "Hello World"
+                echo "This is the $WORKFLOW_VARIABLE environment variable"
+                echo "This is the $JOB_VARIABLE environment variable"
+                echo "This is the $STEP_VARIABLE environment variable"
