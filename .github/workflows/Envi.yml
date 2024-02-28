@@ -32,14 +32,14 @@ jobs:
                  ENVIRONMENT: ${{ env.StagingEnv }}
                 
     Job3:
+
         runs-on: ubuntu-latest
-        env:
-             Environment: $ {{ github.TARGET_ENV || 'des' }}
-             name: Show vars
+        environment: ${{ github.event.inputs.TARGET_ENV || 'description' }}
+        name: Show Values
         steps:
-          -  name: Set value
-             id: Step_One
-             run: |
-                echo "action_state = Yellow " >> "$GITHUB_ENV"
+             - name: Environment
+               run: |
+                echo ENVIRONMENT_NAME = ${{ env.ENVIRONMENT_NAME }}
+                echo Server vars as env = ${{ env.Server }}
 
                
