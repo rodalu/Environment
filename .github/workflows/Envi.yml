@@ -41,5 +41,5 @@ jobs:
              env: 
                 SUPER_SECRET: $ {{ secrets.DEV_ENV }}
              run: |
-                example-command "$DEV_ENV"
+                echo "$DEV_ENV"
                
