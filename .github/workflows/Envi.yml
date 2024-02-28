@@ -37,10 +37,9 @@ jobs:
              Environment: $ {{ github.TARGET_ENV || 'des' }}
              name: Show vars
         steps:
-             - name: Prod Stage
-               run :  echo "Dev_ENV=$(echo $GITHUB_SHA | cut -c 1-6)" >> $GITHUB_ENV
-             - name: Test
-               run: echo $Dev_ENV 
-             - name: Test2
-               run: echo $ {{ env.Dev_ENV }}
+           - shell: bash
+             env: 
+                SUPER_SECRET: $ {{ secrets.DEV_ENV }}
+             run: |
+                example-command "$DEV_ENV"
                
