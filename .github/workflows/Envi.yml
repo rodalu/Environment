@@ -38,8 +38,7 @@ jobs:
              name: Show vars
         steps:
              - name: Prod Stage
-               run : echo "$StagingEnv"
-               env: 
-                  StagingEnv: Staging
+               run :  echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-6)" >> $GITHUB_ENV
+              
           
                
