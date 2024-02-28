@@ -37,9 +37,9 @@ jobs:
              Environment: $ {{ github.TARGET_ENV || 'des' }}
              name: Show vars
         steps:
-           - shell: bash
-             env: 
-                SUPER_SECRET: $ {{ secrets.DEV_ENV }}
+          -  name: Set value
+             id: Step_One
              run: |
-                echo "$DEV_ENV"
+                echo "action_state = Yellow " >> "$GITHUB_ENV"
+
                
