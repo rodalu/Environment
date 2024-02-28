@@ -1,18 +1,22 @@
-name: Test Env Config
+name: Environment_Config
 
 on:
-   [ push, workflow_dispatch]
-
-env:
-    WORKFLOW_VARIABLE: DEV_ENVI
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+    workflow_dispatch:
 
 jobs:
-
-    Development_Environment:
+    Job1:
         runs-on: ubuntu-latest
+        env:
+            Environment: Development
         steps:
-          - shell: pwsh
-            env:
-              SUPER_SECRET: ${{ secrets.GITHUB_TOKEN }}
-            run: |
-             echo ${{ secrets.GITHUB_TOKEN }}
+            - name: Development Stage
+              run : echo "$StageEnv"
+              env:
+                 StageEnv: ${{ env.StageEnv}}
+   
