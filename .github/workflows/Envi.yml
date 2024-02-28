@@ -1,4 +1,4 @@
-name: Environment_Config
+name: Environment_Config 🚀
 
 on:
     push:
@@ -45,8 +45,8 @@ jobs:
     Job4:
 
         runs-on: ubuntu-latest
-        environment: ${{ github.event.inputs.TARGET_ENV || 'Production' }}
-        name: Create Production Environment
+        environment: ${{ github.secret_source || 'Secret' }}
+        name: Production Secret
         steps:
              - name: Production Environment
                run: |
