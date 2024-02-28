@@ -38,7 +38,9 @@ jobs:
              name: Show vars
         steps:
              - name: Prod Stage
-               run :  echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-6)" >> $GITHUB_ENV
-              
-          
+               run :  echo "Dev_ENV=$(echo $GITHUB_SHA | cut -c 1-6)" >> $GITHUB_ENV
+             - name: Test
+               run: echo $Dev_ENV 
+             - name: Test2
+               run: echo $ {{ env.Dev_ENV }}
                
