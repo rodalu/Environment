@@ -1,16 +1,17 @@
 name: Test Env Config
 
 on:
-   workflow_dispatch
+   [ push, workflow_dispatch]
 
+env:
+    WORKFLOW_VARIABLE: DEV_ENVI
 
 jobs:
 
   Dev_environment:
  
-     runs-on: ubuntu=latest
- 
-     steps:  
+    runs-on: ubuntu=latest
+steps:  
         - name: Log Values
           run: echo ${{ secrets.GITHUB_TOKEN }}  
         - name: Environment Config
