@@ -42,4 +42,14 @@ jobs:
                 echo ENVIRONMENT_NAME = ${{ env.ENVIRONMENT_NAME }}
                 echo Server vars as env = ${{ env.Server }}
 
-               
+    Job4:
+
+        runs-on: ubuntu-latest
+        environment: ${{ github.event.inputs.TARGET_ENV || 'Production' }}
+        name: Create Production Environment
+        steps:
+             - name: Production Environment
+               run: |
+                    echo ENVIRONMENT_NAME = ${{ env.ENVIRONMENT_NAME }}
+                    echo Secretfile as secret = ${{ secrets.GITHUB_TOKEN }}
+                    echo Server vars as env = ${{ env.Server }}
