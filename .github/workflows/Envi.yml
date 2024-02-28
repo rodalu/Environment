@@ -45,7 +45,7 @@ jobs:
     Job4:
 
         runs-on: ubuntu-latest
-        environment: ${{ github.secret_source || 'Secret' }}
+        environment: ${{ github.secret_source || 'secrets.Secret' }}
         name: Production Secret
         steps:
              - name: Production Environment
@@ -53,3 +53,4 @@ jobs:
                     echo ENVIRONMENT_NAME = ${{ env.ENVIRONMENT_NAME }}
                     echo Secretfile as secret = ${{ secrets.PRODSECRET }}
                     echo Server vars as env = ${{ env.Server }}
+            
