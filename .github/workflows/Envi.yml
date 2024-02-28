@@ -1,8 +1,8 @@
 name: Test Env Config
 
 on:
-   workflow_dispatch:
-   push:
+   workflow_dispatch
+
 
 jobs:
 
@@ -21,4 +21,6 @@ jobs:
           id: step_two
           run: 
             echo "Development"
-           
+
+        - name: Set Variable
+          run: echo "Dev_Envi ${{ vars.Dev_Envi }}"
