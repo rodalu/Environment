@@ -45,12 +45,11 @@ jobs:
     Job4:
 
         runs-on: ubuntu-latest
-        environment: ${{ github.secret_source || 'secrets.Secret' }}
+        environment: ${{ github.secret_source || 'Secret' }}
         name: Production Secret
         steps:
              - name: Production Environment
-               run: |
-                    echo ENVIRONMENT_NAME = ${{ env.ENVIRONMENT_NAME }}
-                    echo Secretfile as secret = ${{ secrets.PRODSECRET }}
-                    echo Server vars as env = ${{ env.Server }}
-            
+               with: # Set the secret as an input
+                   super_secret: ${{ secrets.SuperSecret }}
+                run: |
+                     echo  Secret  var  as secret = ${{ secrets.SuperSecret }}
