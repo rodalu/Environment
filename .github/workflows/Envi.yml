@@ -51,5 +51,4 @@ jobs:
              - name: Production Environment
                run: |
                     echo API_KEY=${{ secrets.API_KEY }} >> .env
-                    envkey_SOME_API_KEY: "123456abcdef"
-                    echo envkey_SOME_API_KEY var as Secret =  "envkey_SOME_API_KEY"
+                    echo APISecret var as Secret = ${{ secrets.APISecret }} >> .env
