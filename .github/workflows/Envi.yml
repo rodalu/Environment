@@ -45,10 +45,8 @@ jobs:
     Job4:
 
         runs-on: ubuntu-latest
-        env:
-            test_secret: ${{ secrets.test_secret }}
+   
         name: Production Secret
         steps:
-             - name: Production Environment
-               run: |
-                   "$env:test_secret"
+            - name: Print certificate
+              run: echo "$ {{ secrets.BASE64_CERTIFICATE }}  " | base64 --decode
