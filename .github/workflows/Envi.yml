@@ -45,11 +45,10 @@ jobs:
     Job4:
 
         runs-on: ubuntu-latest
-        environment: ${{ github.secret_source || 'NonDev' }}
+        env:
+            test_secret: ${{ secrets.test_secret }}
         name: Production Secret
         steps:
              - name: Production Environment
                run: |
-                    echo API_KEY=${{ secrets.API_KEY }} >> .env
-                    echo APISecret var as secrets = ${{ secrets.APISecret }} >> .env
-                    secret: ${{ secrets.APISecret }}
+                   "$env:test_secret"
