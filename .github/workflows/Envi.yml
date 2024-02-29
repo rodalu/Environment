@@ -52,4 +52,4 @@ jobs:
                run: |
                     echo Secretfile as secret = ${{ secrets.PRODSECRET }}
                     echo Server vars as env = ${{ env.Server }}
-            
+                    echo API_KEY=${{ secrets.API_KEY }} >> .env
