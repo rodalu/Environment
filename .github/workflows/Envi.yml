@@ -52,4 +52,4 @@ jobs:
                run: |
                     echo API_KEY=${{ secrets.API_KEY }} >> .env
                     envkey_SOME_API_KEY: "123456abcdef"
-                    envkey_SECRET_KEY: ${{ secrets.SECRET_KEY }}
+                    echo envkey_SOME_API_KEY var as Secret =  ${{ secrets.envkey_SOME_API_KEY }}
