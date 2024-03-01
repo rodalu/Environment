@@ -50,8 +50,9 @@ jobs:
         name: Production Secret
         steps:
             - name: Test Variable
-              if: ${{ env.platform == 'test' }}
+              if: ${{ env.platform == 'Secret' }}
               run: |
-                  echo "${{ env.platform == 'test' }} "
+                  echo "${{ env.platform == 'Secret' }} "
+                  plaform: Secret
 
             
