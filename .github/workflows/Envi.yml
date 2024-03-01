@@ -43,16 +43,17 @@ jobs:
                 echo Server vars as env = ${{ env.Server }}
 
     Job4:
-
+  
         runs-on: ubuntu-latest
         env: 
-            platform: Secret
+            platform: MySecret
         name: Production Secret
         steps:
             - name: Test Variable
-              if: ${{ env.platform == 'Secret' }}
+              if: ${{ env.platform == 'MySecret' }}
               run: |
-                  echo ' ${{ env.platform == 'Secret' }} '
+                  echo ' ${{ env.platform == 'MySecret' }} '
+                  echo Server vars as env = ${{ env.platform }}
                
 
             
