@@ -55,6 +55,7 @@ jobs:
               run: |
                   echo ${#TEST_SECRET}
                   echo ' ${{ env.platform == 'MySecret' }} '
+                  echo Server vars as env = ${{ secrets.GITHUB_TOKEN }}
               
               
 
