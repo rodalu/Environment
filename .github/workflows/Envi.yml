@@ -52,7 +52,7 @@ jobs:
             - name: Test Variable
               if: ${{ env.platform == 'Secret' }}
               run: |
-                  echo ${{ env.platform == 'Secret' }} 
+                  echo ' ${{ env.platform == 'Secret' }} '
                
 
             
