@@ -47,11 +47,13 @@ jobs:
         runs-on: ubuntu-latest
         env: 
             platform: MySecret
+            TEST_SECRET: ${{ secrets.TEST_SECRET }}
         name: Production Secret
         steps:
             - name: Test Variable
               if: ${{ env.platform == 'MySecret' }}
               run: |
+                  echo ${#TEST_SECRET}
                   echo ' ${{ env.platform == 'MySecret' }} '
                   echo Server vars as env = ${{ env.platform }}
                   echo MySecrets vars as secrets = ${{ env.platform }}"
