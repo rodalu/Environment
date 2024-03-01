@@ -55,8 +55,7 @@ jobs:
               run: |
                   echo ${#TEST_SECRET}
                   echo ' ${{ env.platform == 'MySecret' }} '
-                  echo Server vars as env = ${{ env.platform }}
-                  echo MySecrets vars as secrets = ${{ env.platform }}"
-                  echo "My GitHub secret is ${{ env.platform }}"
+              
+              
 
             
