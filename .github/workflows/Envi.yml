@@ -54,6 +54,6 @@ jobs:
               run: |
                   echo ' ${{ env.platform == 'MySecret' }} '
                   echo Server vars as env = ${{ env.platform }}
-               
+                  echo "My GitHub secret is ${{ env.platform }}"
 
             
