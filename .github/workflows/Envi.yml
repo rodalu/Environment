@@ -47,7 +47,7 @@ jobs:
         runs-on: ubuntu-latest
         env: 
             platform: MySecret
-            TEST_SECRET: ${{ secrets.TEST_SECRET }}
+            TEST_SECRET: ${{ secrets.GITHUB_TOKEN }}
         name: Production Secret
         steps:
             - name: Test Variable
