@@ -39,7 +39,7 @@ jobs:
         steps:
              - name: Production Environment
                run: |
-                echo ENVIRONMENT_NAME = ${{ env.ENVIRONMENT_NAME }}
+                echo ENVIRONMENT_NAME = ${{ env.Production }}
                 echo Server vars as env = ${{ env.Server }}
 
     Job4:
@@ -54,6 +54,7 @@ jobs:
               run: |
                   echo ' ${{ env.platform == 'MySecret' }} '
                   echo Server vars as env = ${{ env.platform }}
+                  echo MySecrets vars as secrets = ${{ env.platform }}"
                   echo "My GitHub secret is ${{ env.platform }}"
 
             
