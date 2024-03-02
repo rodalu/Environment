@@ -46,15 +46,19 @@ jobs:
     Job4:
   
         runs-on: ubuntu-latest
+  
         env: 
             SuperSecret: SuperSecret
         name: Production Secret
+      
         steps:
-           - shell: cmd
-             env:
-              SUPER_SECRET: ${{ secrets.SuperSecret }}
-             run: |
-              example-command "%SUPER_SECRET%"
+            - name: Hello world action
+              run: |
+                 echo "My environment variable is $MY_VARIABLE" # This is your variable that will not be masked
+
+
+
+               
 
                 
               
