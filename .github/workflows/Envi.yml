@@ -43,20 +43,24 @@ jobs:
                 echo Server vars as env = ${{ env.Server }}
                 echo Server vars as env = ${{ secrets.GITHUB_TOKEN }}
 
+        env:
+            DAY_OF_WEEK: Monday
+
     Job4:
   
-        runs-on: ubuntu-latest
-  
+        runs-on: ubuntu-latest  
         env: 
             SuperSecret: SuperSecret
+            DAY_OF_WEEK: Monday
         name: Production Secret
       
         steps:
-            - name: Hello world action
-              run: |
-                 echo "My environment variable is $MY_VARIABLE" # This is your variable that will not be masked
-
-
+            - name: "Say Hello Mona it's Monday"
+              if: ${{ env.DAY_OF_WEEK == 'Monday' }}
+              run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+              env:
+                First_Name: Mona
+                  
 
                
 
