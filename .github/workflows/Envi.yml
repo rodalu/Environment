@@ -65,7 +65,7 @@ jobs:
 
             - name: "Say Hello Mona it's Monday"
               if: ${{ env.MySecret == 'MySecretVariable' }}
-              run: echo " $TestVarSecret SMySecret "
+              run: echo " $TestVarSecret $MySecret "
                    echo Server vars as secrets = ${{ secrets.MySecretVariable }}           
 
                 
