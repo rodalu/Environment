@@ -52,6 +52,7 @@ jobs:
         env: 
             SuperSecret: SuperSecret
             DAY_OF_WEEK: Monday
+            MySecret: MySecretVariable
         name: Production Secret
       
         steps:
@@ -62,7 +63,10 @@ jobs:
                 First_Name: Mona
                   
 
-               
+            - name: "Say Hello Mona it's Monday"
+              if: ${{ env.MySecret == 'MySecretVariable' }}
+              run: echo " $TestVarSecret SMySecret "
+                   echo Server vars as secrets = ${{ secrets.MySecretVariable }}           
 
                 
               
