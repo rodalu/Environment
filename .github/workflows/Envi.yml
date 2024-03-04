@@ -67,7 +67,7 @@ jobs:
               if: ${{ env.MySecret == 'MySecretVariable' }}
               run: echo " $TestVarSecret $MySecret "
               env: 
-                TestVarSecret: MySecret >> $GITHUB_ENV
+                TestVarSecret: 'MySecret'
 
                 
               
